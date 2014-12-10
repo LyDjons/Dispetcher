@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://D://SimpleMaven/SimpleMaven.iml" filepath="D://SimpleMaven/SimpleMaven.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SimpleMaven.iml" filepath="$PROJECT_DIR$/SimpleMaven.iml" />
     </modules>
   </component>
 </project>
