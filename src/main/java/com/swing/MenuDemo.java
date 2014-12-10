@@ -35,6 +35,8 @@ public class MenuDemo {
         JMenuItem saveItemNew;
         JMenuItem show_config;
         JMenuItem autor;
+        JMenuItem dammies;
+        JMenuItem about;
         final Disp disp = new DispControl();
 
         //Create the menuFile bar.
@@ -57,8 +59,41 @@ public class MenuDemo {
             saveMenu.add(saveItemNew);
         show_config = new JMenuItem("Файл конфгурации");
         autor = new JMenuItem("Об авторе");
+        dammies = new JMenuItem("Для чайников");
+        about = new JMenuItem("О программе");
+        dammies.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame parent = new JFrame();
+                String multiLineMsg[] = { "1.  Выгрузить ДУТ с программы TrackControl v 1.47. В дут должны "+newline+
+                                          "входить только те треккера, которые необходимы для отчета."+newline+
+                                          "2.  Настроить файл конфигурации \"Настройки/Файл конфигурации\". "+newline+
+                                          "Для комбайнов и бункеров использовать лист \"combaine\"    "+newline+
+                                          "3.  Загрузить ДУТ в программу с помощью команды \"Файл/Загрузить ДУТ\" "+newline+
+                                          "4.  Создать отчет с помощью команды \"Файл/Создать отчет\". "+newline+
+                                          "Отчет можно выгрузить как в существующий файл, так и в новый,"+newline+
+                                          "указав название файла и место положения. "
+                                          } ;
+                JOptionPane.showMessageDialog(parent,
+                        multiLineMsg,"Инструкция",JOptionPane.INFORMATION_MESSAGE,null);
+            }
+        });
+        about.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame parent = new JFrame();
+                String multiLineMsg[] = { "   Ленивый  диспетчер  -  это отличный  выбор для  облегчения жизни "+newline+
+                                          "диспетчеру. Ведь с утреца очень хочется бахнуть кофейку, поделиться  "+newline+
+                                          "с колеггами вчерашними приключениями, или  же  вздремнуть полчасика "+newline+
+                                          "лиццом на клавиатуре. Но важность сдачи отчетов не дает расслабится. "+newline+
+                                          "По  этому спецом для Вас  и  была  создана  эта  чудо-программулина, "+newline+
+                                          "способна сократить рабочий процесс, создавая качествынные отчеты."
 
-
+                        , "" } ;
+                JOptionPane.showMessageDialog(parent,
+                       multiLineMsg,"О программе",JOptionPane.INFORMATION_MESSAGE,null);
+            }
+        });
         autor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -207,6 +242,8 @@ public class MenuDemo {
              menuFile.add(loadItem);
              menuFile.add(saveMenu);
         menuSetting.add(show_config);
+        menuInfo.add(about);
+        menuInfo.add(dammies);
         menuInfo.add(autor);
 
         return menuBar;
