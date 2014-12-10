@@ -5,10 +5,7 @@ import com.disp.disp.control.loadExcell.Report;
 import com.disp.disp.control.loadExcell.TransportAction;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by disp.chimc on 31.10.14.
@@ -213,7 +210,24 @@ transportAction.getInterval().getHours()<0) continue;
             }
 
         }
-
+        //deleted start yellow
+        for(Pinter p : painterarray){
+            if(p.getColor().equals(new Color(255,255,0)))
+                p.setColor(new Color(255,255,255));
+            else
+            if(p.getColor().equals(new Color(0,176,80))){
+                break;
+            }
+        }
+        //deleted end Yellow
+        for(int i = painterarray.size()-1; i >-1;i--){
+            if(painterarray.get(i).getColor().equals(new Color(255,255,0))){
+                painterarray.get(i).setColor(new Color(255,255,255));
+            }
+            if(painterarray.get(i).getColor().equals(new Color(0,176,80))){
+                break;
+            }
+        }
         return painterarray;
     }
 
