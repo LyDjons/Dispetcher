@@ -12,6 +12,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 /**
@@ -59,9 +61,20 @@ public class DispControl implements Disp {
         ArrayList<TransportExcell> transportExcell = new ArrayList<TransportExcell>();
         for(Report re: reports){
             transportExcell.add(new TransportExcell(re,configs));
-
-
         }
+        //сортируем список по отделениям
+        for(int i = 0;i<transportExcell.size();i++){
+            transportExcell.get(i).setDepartment(transportExcell.get(i).getDepartment()+" ");
+        }
+        Collections.sort(transportExcell, new Comparator<TransportExcell>() {
+            @Override
+            public int compare(TransportExcell o1, TransportExcell o2) {
+                if (o1.getPintersList() == null || o2.getPintersList() == null) return 0;
+                String s1 = o1.getDepartment().substring(o1.getDepartment().indexOf(" "), o1.getDepartment().length());
+                String s2 = o2.getDepartment().substring(o1.getDepartment().indexOf(" "), o2.getDepartment().length());
+                return s2.toString().compareTo(s1.toString());
+            }
+        });
 
         try{
             SaveExclell saveExclell = new SaveExclell(path,list_name);

@@ -15,6 +15,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by disp.chimc on 31.10.14.
@@ -114,13 +116,15 @@ public class SaveExclell {
         try{
             int row1 =4;
             for(TransportExcell tr: transportlist){
-                for(int i = tr.getFirstIndexWorkGreen(tr.getPintersList())-1;i<tr.getLastIndexWorkGreen(tr.getPintersList())+1;i++){
+
+                for(int i = tr.getFirstIndexWorkGreen(tr.getPintersList())-1;i<tr.getLastIndexWorkGreen(tr.getPintersList());i++){
                     if(i>4) driwing_cell(row1, i,work);
                 }
                 row1++;
             }
             row1=4;
             for(TransportExcell tr: transportlist){
+
                 for(Pinter p:tr.getPintersList()){
                     if(p.getColor().equals(stop)){
                         for(int i =p.getStart();i<p.getEnd();i++){
@@ -164,7 +168,12 @@ public class SaveExclell {
 
 
         }
-        driwing_report(new Color(0,176,80),new Color(255,255,0),transportlist);
+
+
+
+
+        //исуем отчет
+        driwing_report(new Color(0, 176, 80), new Color(255, 255, 0), transportlist);
 
     }
 

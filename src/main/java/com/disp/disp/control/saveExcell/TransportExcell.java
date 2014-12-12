@@ -11,7 +11,7 @@ import java.util.*;
  * Created by disp.chimc on 31.10.14.
  */
 public class TransportExcell {
-
+    private int tracker;
     private String department;
     private String transport_mark;
     private String gos;
@@ -59,6 +59,18 @@ if(configs==null) return "нет в config";
       return  "-";
     }
 
+    public int getTracker() {
+        return tracker;
+    }
+
+    public void setTracker(int tracker) {
+        this.tracker = tracker;
+    }
+
+    public void setGos(String gos) {
+        this.gos = gos;
+    }
+
     public String getType_of_work() {
         return type_of_work;
     }
@@ -99,8 +111,9 @@ if(configs==null) return "нет в config";
         return "-";
     }
     public TransportExcell(Report report,ArrayList<Config>configs) {
+        tracker = report.getTracker();
         department= get_list_departments_of_work(report,configs);
-        transport_mark =report.getTransport();
+        transport_mark = get_transport_mark(report.getTracker(),report.getTransport(),configs);
         gos =getGos(report.getTracker(), configs);
         type_of_work = get_type_of_work(report.getTracker(),configs);
         fio  = getDriver(report, configs);
@@ -121,6 +134,15 @@ if(configs==null) return "нет в config";
         }else {
             end = (Date)getEndWork(report).clone();}
         pintersList=getPainterListIntervalNumColumn(report.getTransportActions());
+        if(gos.contains(".")) gos = gos .substring(0,gos.indexOf("."));
+
+    }
+    public static String get_transport_mark(int tracker,String transpory_marck,ArrayList<Config>configs){
+       if(configs==null) return transpory_marck;
+    for(Config c :configs){
+           if(Integer.valueOf(c.getTracker())==tracker) return c.getMark();
+    }
+      return transpory_marck;
     }
           //получение начала движения
     private static Date getStartWork(Report report){

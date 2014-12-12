@@ -111,7 +111,7 @@ public class MenuDemo {
                         , "   5168757200215517" } ;
 
                 Object[] options = {"Отблагодарил",
-                        "Я жмот"};
+                        "Я бедняк"};
                 int n = JOptionPane.showOptionDialog(parent,
                        multiLineMsg,
                         "Info",
