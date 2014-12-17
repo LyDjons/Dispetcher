@@ -95,7 +95,12 @@ public class ExcellLoader {
                                 String.valueOf(row.getCell(4)),
                                 String.valueOf(row.getCell(5)),
                                 String.valueOf(row.getCell(7)),
-                                String.valueOf(row.getCell(8)));
+                                String.valueOf(row.getCell(8)),
+                                String.valueOf(row.getCell(9)),
+                                String.valueOf(row.getCell(12)),
+                                String.valueOf(row.getCell(13)));
+
+
 
                         unitreport.addTransportAction(transportAction);
 

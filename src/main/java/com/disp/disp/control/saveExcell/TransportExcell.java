@@ -227,7 +227,10 @@ transportAction.getInterval().getHours()<0) continue;
             transportAction.getInterval().getMinutes()>14)){
                 painterarray.add(new Pinter(start,end,new Color(255,255,0)));
             }
-            if(transportAction.getStatus().contains("Движение")){
+            if(transportAction.getMiddle_speed()>14 && transportAction.getStatus().contains("Движение")){
+                painterarray.add(new Pinter(start,end,new Color(0,176,240)));
+            }
+            if(transportAction.getStatus().contains("Движение") && transportAction.getMiddle_speed()<14){
                 painterarray.add(new Pinter(start,end,new Color(0,176,80)));
             }
 

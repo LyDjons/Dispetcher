@@ -134,6 +134,20 @@ public class SaveExclell {
                 }
                 row1++;
             }
+            //рисуем переезды
+            row1=4;
+            for(TransportExcell tr: transportlist){
+
+                for(Pinter p:tr.getPintersList()){
+                    if(p.getColor().equals(new Color(0,176,240))){
+                       System.out.println(p.toString());
+                        for(int i =p.getStart();i<p.getEnd();i++){
+                            driwing_cell(row1,i,p.getColor());
+                        }
+                    }
+                }
+                row1++;
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -166,11 +180,7 @@ public class SaveExclell {
                 }
             }
 
-
         }
-
-
-
 
         //исуем отчет
         driwing_report(new Color(0, 176, 80), new Color(255, 255, 0), transportlist);

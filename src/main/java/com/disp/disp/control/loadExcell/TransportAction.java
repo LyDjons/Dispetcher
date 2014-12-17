@@ -14,8 +14,19 @@ public class TransportAction {
     private Date end;
     private Date interval;
     private double milage;
+    private double km_from_the_begin;
+    private double middle_speed;
+    private double max_speed;
 
-    public TransportAction(String status,String place, String start, String end,String interval,String milage) throws ParseException {
+    public TransportAction(String status,
+                           String place,
+                           String start,
+                           String end,
+                           String interval,
+                           String milage,
+                           String km_from_the_begin,
+                           String middle_speed,
+                           String max_speed) throws ParseException {
         this.status=status;
         this.place = place;
 
@@ -23,6 +34,10 @@ public class TransportAction {
         this.end = new SimpleDateFormat("dd.MM.yyyy HH:mm").parse(end);
         this.interval =new SimpleDateFormat("HH:mm:ss").parse(interval);
         this.milage = Double.valueOf(milage);
+        this.km_from_the_begin = Double.valueOf(km_from_the_begin);
+        this.middle_speed = Double.valueOf(middle_speed);
+        this.max_speed =Double.valueOf(max_speed);
+
 
     }
 
@@ -74,6 +89,30 @@ public class TransportAction {
         this.interval = interval;
     }
 
+    public double getKm_from_the_begin() {
+        return km_from_the_begin;
+    }
+
+    public void setKm_from_the_begin(double km_from_the_begin) {
+        this.km_from_the_begin = km_from_the_begin;
+    }
+
+    public double getMiddle_speed() {
+        return middle_speed;
+    }
+
+    public void setMiddle_speed(double middle_speed) {
+        this.middle_speed = middle_speed;
+    }
+
+    public double getMax_speed() {
+        return max_speed;
+    }
+
+    public void setMax_speed(double max_speed) {
+        this.max_speed = max_speed;
+    }
+
     @Override
     public String toString() {
         return "TransportAction{" +
@@ -83,6 +122,9 @@ public class TransportAction {
                 ", end=" + end +
                 ", interval=" + interval +
                 ", milage=" + milage +
+                ", km_from_the_begin=" + km_from_the_begin +
+                ", middle_speed=" + middle_speed +
+                ", max_speed=" + max_speed +
                 '}';
     }
 }
